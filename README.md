@@ -44,6 +44,6 @@
 
 <div align="center">
 
-*Last updated: 2026-09-23* · (https://github.com/PushMyCode-HQ)
+*Last updated: 2026-09-23* · 
 
 </div>
