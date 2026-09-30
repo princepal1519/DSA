@@ -56,7 +56,7 @@ The third line contains two space-separated integers, $d$ and $m$, Ron's birth d
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T18:56:35.482Z  
+**Submitted:** 2026-09-30T19:00:49.259Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -79,13 +79,17 @@ vector<string> split(const string &);
 
 int birthday(vector<int> s, int d, int m) {
     int ways=0;
-    for(int i=0;i<s.size();i++){
-        int sum=0;
-        for(int j=i;j<s.size();j++){
-            sum+=s[j];
-            if(sum==d && (j-i+1)==m){
-                ways++;
-            }
+    int sum=0;
+    for(int i=0;i<m;i++){
+        sum+=s[i];
+    }
+    if(sum==d){
+        ways++;
+    }
+    for(int i=m;i<s.size();i++){
+        sum=sum+s[i]-s[i-m];
+        if(sum==d){
+            ways++;
         }
     }
     return ways;
