@@ -17,31 +17,7 @@
 | Difficulty | Solved |
 |:---:|:---:|
 | 🟢 Easy | **5** |
-| 🟡 Medium | **11** |
-| 🔴 Hard | **0** |
-| **Total** | **24** |
-
-## 🛠️ Languages
-
-| Language | Solutions |
-|:---:|:---:|
-| C++ | **24** |
-
-## 📂 Repository Structure
-
-```
-📦 coding-solutions/
-├── leetcode/
-│   ├── easy/
-│   ├── medium/
-│   └── hard/
-├── hackerrank/
-├── codechef/
-└── gfg/
-```
-
----
-
+| 🟡 Medium 
 <div align="center">
 
 *Last updated: 2026-10-02* · Powered by [**PushMyCode**](https://github.com/PushMyCode-HQ)
