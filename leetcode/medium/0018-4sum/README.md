@@ -41,9 +41,9 @@ Output: [[2,2,2,2]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-10-18T17:23:24.415Z  
+**Runtime:** 24 ms (beats 34.42%)  
+**Memory:** 17.5 MB (beats 57.63%)  
+**Submitted:** 2026-10-18T18:03:41.314Z  
 
 ```cpp
 class Solution {
@@ -55,11 +55,12 @@ public:
         for(int i=0;i<nums.size();i++){
             if(i>0 && nums[i]==nums[i-1])continue;
             for(int j=i+1;j<nums.size();j++){
-                if(j>1 && nums[j]==nums[j-1])continue;
+                if(j > i+1 && nums[j]==nums[j-1])continue;
                 int k=j+1;
                 int l=n-1;
                 while(k<l){
-                    int sum=nums[i]+nums[j]+nums[k]+nums[l];
+                    long long sum=((long long)nums[i])+nums[j]+nums[k]+nums[l];
+                    //  #why long long because here the edge case has some integer outside int range so to overcome we assign one integer variable as long long so other can easily be added .
                     if(sum<target)k++;
                     else if(sum>target)l--;
                     else {
