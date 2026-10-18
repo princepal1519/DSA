@@ -7,11 +7,12 @@ public:
         for(int i=0;i<nums.size();i++){
             if(i>0 && nums[i]==nums[i-1])continue;
             for(int j=i+1;j<nums.size();j++){
-                if(j>1 && nums[j]==nums[j-1])continue;
+                if(j > i+1 && nums[j]==nums[j-1])continue;
                 int k=j+1;
                 int l=n-1;
                 while(k<l){
-                    int sum=nums[i]+nums[j]+nums[k]+nums[l];
+                    long long sum=((long long)nums[i])+nums[j]+nums[k]+nums[l];
+                    //  #why long long because here the edge case has some integer outside int range so to overcome we assign one integer variable as long long so other can easily be added .
                     if(sum<target)k++;
                     else if(sum>target)l--;
                     else {
