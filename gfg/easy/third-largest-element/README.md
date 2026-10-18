@@ -32,7 +32,7 @@ Explanation: In the array [5, 5, 5], the third largest element can be considered
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-18T19:42:01.799Z  
+**Submitted:** 2026-10-18T19:42:08.530Z  
 
 ```cpp
 class Solution {
