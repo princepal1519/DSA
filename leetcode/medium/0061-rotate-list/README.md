@@ -35,9 +35,9 @@ Output: [2,0,1]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-10-21T06:23:01.401Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 16.3 MB (beats 61.27%)  
+**Submitted:** 2026-10-21T06:28:48.957Z  
 
 ```cpp
 /**
@@ -59,11 +59,12 @@ public:
         ListNode  *fast=head;
         ListNode *count=head;
         int count_list=1;
-        while(count->next){
+        while(count->next!=NULL){
             count=count->next;
             count_list++;
         }
         k=k%count_list;
+        if(k==0)return head;
         int c=0;
         while(c<k){
             c++;
@@ -76,8 +77,8 @@ public:
         ListNode *newnode=slow->next;
         slow->next=NULL;
         fast->next=head;
-
-        return newnode;
+        head=newnode;
+        return head;
 
     }
 };
