@@ -35,9 +35,9 @@ Output: [1,2,3]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-10-21T06:34:10.022Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 16.2 MB (beats 66.54%)  
+**Submitted:** 2026-10-21T07:13:49.479Z  
 
 ```cpp
 /**
@@ -53,7 +53,7 @@ Output: [1,2,3]
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if(!head || head->next )return head;
+        if(!head )return head;
         ListNode *current=head;
 
         while(current->next!=NULL){
