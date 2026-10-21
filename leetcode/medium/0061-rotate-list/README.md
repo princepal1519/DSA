@@ -36,8 +36,8 @@ Output: [2,0,1]
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-10-21T06:19:17.545Z  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-10-21T06:23:01.401Z  
 
 ```cpp
 /**
@@ -53,12 +53,13 @@ Output: [2,0,1]
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
+        if(!head || !head->next || k==0)return head;
         
         ListNode *slow=head;
         ListNode  *fast=head;
         ListNode *count=head;
         int count_list=1;
-        while(count->next!=NULL){
+        while(count->next){
             count=count->next;
             count_list++;
         }
