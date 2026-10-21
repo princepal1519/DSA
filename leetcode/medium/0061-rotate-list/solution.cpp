@@ -17,11 +17,12 @@ public:
         ListNode  *fast=head;
         ListNode *count=head;
         int count_list=1;
-        while(count->next){
+        while(count->next!=NULL){
             count=count->next;
             count_list++;
         }
         k=k%count_list;
+        if(k==0)return head;
         int c=0;
         while(c<k){
             c++;
@@ -34,8 +35,8 @@ public:
         ListNode *newnode=slow->next;
         slow->next=NULL;
         fast->next=head;
-
-        return newnode;
+        head=newnode;
+        return head;
 
     }
 };
