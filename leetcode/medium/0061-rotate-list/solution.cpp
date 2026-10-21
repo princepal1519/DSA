@@ -11,12 +11,13 @@
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
+        if(!head || !head->next || k==0)return head;
         
         ListNode *slow=head;
         ListNode  *fast=head;
         ListNode *count=head;
         int count_list=1;
-        while(count->next!=NULL){
+        while(count->next){
             count=count->next;
             count_list++;
         }
