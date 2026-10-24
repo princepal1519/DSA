@@ -46,9 +46,9 @@ Explanation: Intervals [1,4] and [4,7] are considered overlapping.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 5 ms (beats 55.05%)  
-**Memory:** 23.7 MB (beats 94.03%)  
-**Submitted:** 2026-10-22T13:10:00.287Z  
+**Runtime:** 6 ms (beats 47.26%)  
+**Memory:** 23.9 MB (beats 60.57%)  
+**Submitted:** 2026-10-24T02:50:32.159Z  
 
 ```cpp
 class Solution {
@@ -58,19 +58,12 @@ public:
         sort(intervals.begin(),intervals.end());
         vector<vector<int>> answer;
         for (int i = 0; i < n; i++) {
-            int start = intervals[i][0];
-            int end = intervals[i][1];
-            if(!answer.empty() && end<=answer.back()[1])continue;
-
-            for (int j = i+1; j < n; j++) {
-                if(intervals[j][0]<=end){
-                    end=max(intervals[j][1],end);
-                }
-                else{
-                    break;
-                }
-            }
-            answer.push_back({start,end});
+           if(!answer.empty() && intervals[i][0]<=answer.back()[1]){
+            answer.back()[1]=max(answer.back()[1],intervals[i][1]);
+           }
+           else{
+            answer.push_back(intervals[i]);
+           }
         }
 
         return answer;
