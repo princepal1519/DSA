@@ -39,9 +39,9 @@ Output: [2,3]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-10-26T14:33:53.538Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 15.7 MB (beats 77.25%)  
+**Submitted:** 2026-10-26T14:41:09.420Z  
 
 ```cpp
 /**
@@ -63,21 +63,11 @@ public:
         ListNode* previous = &dummy;
         ListNode* current = head;
 
-        if(head==NULL)return NULL;
-
-        if (current->next != NULL && current->val == current->next->val) {
-            int x = current->val;
-            while (current->next != NULL && current->val == x) {
-                current = current->next;
-            }
-            if(current->next==NULL && current->val==x)return NULL;
-            previous->next = current;
-        }
 
         while (current) {
-            if (current->next != NULL && current->val == current->next->val) {
+            if (current->next  && current->val == current->next->val) {
                 int x = current->val;
-                while (current->next != NULL && current->val == x) {
+                while (current && current->val == x) {
                     current = current->next;
                 }
                 previous->next = current;
