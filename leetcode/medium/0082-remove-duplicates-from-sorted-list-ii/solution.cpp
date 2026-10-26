@@ -17,21 +17,11 @@ public:
         ListNode* previous = &dummy;
         ListNode* current = head;
 
-        if(head==NULL)return NULL;
-
-        if (current->next != NULL && current->val == current->next->val) {
-            int x = current->val;
-            while (current->next != NULL && current->val == x) {
-                current = current->next;
-            }
-            if(current->next==NULL && current->val==x)return NULL;
-            previous->next = current;
-        }
 
         while (current) {
-            if (current->next != NULL && current->val == current->next->val) {
+            if (current->next  && current->val == current->next->val) {
                 int x = current->val;
-                while (current->next != NULL && current->val == x) {
+                while (current && current->val == x) {
                     current = current->next;
                 }
                 previous->next = current;
