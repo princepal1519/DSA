@@ -46,27 +46,27 @@ Explanation: The reverse pairs are:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-10-30T12:23:38.624Z  
+**Runtime:** 576 ms (beats 19.98%)  
+**Memory:** 243.6 MB (beats 12.57%)  
+**Submitted:** 2026-10-30T12:32:19.834Z  
 
 ```cpp
 class Solution {
 private:
-    int pair_count(vector<int> nums, int low, int mid, int high) {
+    long long pair_count(vector<int>& nums, int low, int mid, int high) {
         int c = 0;
         int left = low;
         int right = mid + 1;
         for (int i = left; i <= mid; i++) {
-            while(right<=high && nums[i]>2*nums[right]){
+            while (right <= high && (long long)nums[i] > 2LL * nums[right]) {
                 right++;
             }
-            c+=right-(mid+1);
+            c += right - (mid + 1);
         }
 
         return c;
     }
-    void merge_sort(vector<int> nums, int low, int mid, int high) {
+    void merge_sort(vector<int>& nums, int low, int mid, int high) {
         vector<int> temp;
         int left = low;
         int right = mid + 1;
@@ -87,10 +87,12 @@ private:
             temp.push_back(nums[right]);
             right++;
         }
-        
+        for (int i = low; i <= high; i++) {
+            nums[i] = temp[i - low];
+        }
     }
 
-    int merge(vector<int> nums, int low, int high) {
+    int merge(vector<int>& nums, int low, int high) {
         int cnt = 0;
         if (low >= high)
             return cnt;
