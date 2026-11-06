@@ -30,14 +30,14 @@ Explanation: Since arr[2] + arr[3] = 4 + 6 = 10 equals the target, return their 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-06T14:08:12.739Z  
+**Submitted:** 2026-11-06T14:10:19.122Z  
 
 ```cpp
 class Solution {
   public:
     vector<int> twoSum(vector<int>& arr, int target) {
         // code here
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         for(int i=0;i<arr.size();i++){
             mp[arr[i]]=i;
         }
