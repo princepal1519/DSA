@@ -20,7 +20,8 @@ C++
  **Example 1:** 
 
 ```
-Input:int n = 2;Output: [1,1]
+Input: n = 2
+Output: [1,1]
 Explanation: Let a = 1 and b = 1.
 Both a and b are no-zero integers, and a + b = 2 = n.
 
@@ -29,7 +30,8 @@ Both a and b are no-zero integers, and a + b = 2 = n.
  **Example 2:** 
 
 ```
-Input:int n = 11;Output: [2,9]
+Input: n = 11
+Output: [2,9]
 Explanation: Let a = 2 and b = 9.
 Both a and b are no-zero integers, and a + b = 11 = n.
 Note that there are other valid answers as [8, 3] that can be accepted.
@@ -45,46 +47,34 @@ Note that there are other valid answers as [8, 3] that can be accepted.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.6 MB  
-**Submitted:** 2026-11-10T11:26:38.944Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 8.1 MB (beats 83.19%)  
+**Submitted:** 2026-11-10T12:03:37.746Z  
 
 ```cpp
 class Solution {
+private:
+    bool iszero(int x){
+        int temp=x;
+        while(temp>0){
+            int digit=temp%10;
+            if(digit==0){
+                return true;
+            }
+            temp=temp/10;
+        }
+        return false;
+    }
 public:
     vector<int> getNoZeroIntegers(int n) {
-     int first = 1;
-        int last = n - first;
-        bool f = true;
-        bool l = true;
-        while (f && l) {
-            int temp1 = first;
-            int temp2 = last;
-            while (temp1) {
-                int digit = temp1 % 10;
-                if (digit == 0) {
-                    first++;
-                    last--;
-                    temp1 = first;
-                    continue;
-                }
-                temp1 = temp1 / 10;
-            }
-            f=false;
-            while (temp2) {
-                int digit = temp2 % 10;
-                if (digit == 0) {
-                    last--;
-                    first++;
-                    temp2 = last;
-                    continue;
-                }
-                temp2 = temp2 / 10;
-            }
-            l=false;
-        }
-        return {first, last};
-        
+        int first=n/2;
+        int last=n-first;
+
+        while(iszero(first) || iszero(last)){
+            first--;
+            last++;
+        }  
+        return {first,last};    
     }
 };
 ```
