@@ -71,9 +71,9 @@ Since `-2 > -12`, the pair at indices `(3, 1)` is chosen and the answer is `[3, 
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-11-18T14:37:01.756Z  
+**Runtime:** 2 ms (beats 60.58%)  
+**Memory:** 31.9 MB (beats 38.03%)  
+**Submitted:** 2026-11-18T14:46:55.192Z  
 
 ```cpp
 class Solution {
@@ -84,16 +84,15 @@ public:
         arr.push_back(-1);
         int product = INT_MIN;
         for (int i = 0; i < nums.size(); i++) {
-            for (int j = i + 1; j < nums.size(); j++) {
-                if (nums[j] > nums[i]) {
-                    int sum = nums[i] + nums[j];
-                    if (sum == target) {
-                        int new_product = nums[i] * nums[j];
-                        if (new_product > product) {
-                            product = max(product, new_product);
-                            arr[1] = i;
-                            arr[0] = j;
-                        }
+            for (int j = 0; j < nums.size(); j++) {
+                if(i==j)continue;
+                int sum = nums[i] + nums[j];
+                if (sum == target && nums[i] > nums[j]) {
+                    int new_product = nums[i] * nums[j];
+                    if (new_product > product) {
+                        product = max(product, new_product);
+                        arr[0] = i;
+                        arr[1] = j;
                     }
                 }
             }
