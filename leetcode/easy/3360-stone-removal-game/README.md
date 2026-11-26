@@ -47,9 +47,9 @@ C++
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.6 MB  
-**Submitted:** 2026-11-26T01:31:44.610Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 7.7 MB (beats 72.34%)  
+**Submitted:** 2026-11-26T01:31:50.398Z  
 
 ```cpp
 class Solution {
